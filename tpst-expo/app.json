@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tpst-mobile-app",
-    "slug": "tpst-mobile-app",
+    "name": "tpst-expo",
+    "slug": "tpst-expo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -1,5 +1,5 @@
 {
-  "name": "tpst-mobile-app",
+  "name": "tpst-expo",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
