@@ -13,16 +13,60 @@ export function Dashboard() {
   const [place, setPlace] = useState("");
   const { setDlist } = useSpendsContext();
 
-  async function handleAddNewSpend(data: SpendProps) {
-    await asyncStorage.spendCreate(data);
-    const result = await asyncStorage.spendList();
-    setDlist(result);
+  function dataValidation(data: SpendProps): boolean {
+    // Check if description is not empty
+    if (!data.description || data.description.trim() === '') {
+      alert('Por favor, informe uma descrição.');
+      return false;
+    }
+  
+    // Check if is a valid number
+    if (!data.value || isNaN(parseFloat(data.value.replace(',', '.')))) {
+      alert('Por favor, informe um valor válido.');
+      return false;
+    }
+    
+    // Check if is positive
+    if (parseFloat(data.value.replace(',', '.')) <= 0) {
+      alert('O valor deve ser maior que zero.');
+      return false;
+    }
+  
+    // Check (DD/MM/YYYY)
+    if (!data.date || !/^\d{2}\/\d{2}\/\d{4}$/.test(data.date)) {
+      alert('Por favor, informe uma data válida no formato DD/MM/YYYY.');
+      return false;
+    }
+  
+    // Check if category is not empty
+    if (!data.category || data.category.trim() === '') {
+      alert('Por favor, informe uma categoria.');
+      return false;
+    }
+  
+    // Check if place is not empty
+    if (!data.place || data.place.trim() === '') {
+      alert('Por favor, informe um local.');
+      return false;
+    }
+  
+    // All validations passed
+    return true;
+  }
 
-    setDescription("");
-    setValue("");
-    setDate("");
-    setCategory("");
-    setPlace("");
+  async function handleAddNewSpend(data: SpendProps) {
+    if (dataValidation(data))
+    {
+      await asyncStorage.spendCreate(data);
+      const result = await asyncStorage.spendList();
+      setDlist(result);
+
+      setDescription("");
+      setValue("");
+      setDate("");
+      setCategory("");
+      setPlace("");
+    }
   }
 
   return (

@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     fontSize: theme.typography.caption.fontSize,
     fontFamily: stylesFonts.medium,
     color: colors.gray[500],
-    width: 80,
+    width: 100,
   },
   detailText: {
     fontSize: theme.typography.caption.fontSize,

@@ -59,10 +59,10 @@ export const styles = StyleSheet.create({
   searchBtn: {
     backgroundColor: colors.green.base,
     borderRadius: 8,
-    padding: theme.spacing.sm,
+    padding: theme.spacing.xs,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: theme.spacing.sm,
+    marginTop: theme.spacing.xs,
   },
   searchBtnText: {
     fontFamily: stylesFonts.semiBold,
@@ -70,13 +70,17 @@ export const styles = StyleSheet.create({
     color: colors.gray[100],
   },
   resultContainer: {
-    marginTop: theme.spacing.xl,
+    backgroundColor: colors.green.soft,
+    borderRadius: 8,
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.md,
   },
   resultTitle: {
     fontSize: theme.typography.subheading.fontSize,
     fontFamily: stylesFonts.medium,
     color: colors.green.dark,
     marginBottom: theme.spacing.md,
+    textAlign: "center",
   },
   noResultText: {
     fontSize: theme.typography.body.fontSize,

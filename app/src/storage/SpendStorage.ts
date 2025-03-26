@@ -52,9 +52,14 @@ async function spendRemove() {
   });
 }
 
+async function spendClear() {
+  await AsyncStorage.clear();
+}
+
 export const asyncStorage = {
   spendCreate,
   spendList,
   spendMergeItem,
   spendRemove,
+  spendClear,
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, View, FlatList, Touchable, TouchableOpacity, TextInput } from "react-native";
+import { Text, View, FlatList, Touchable, ScrollView, TouchableOpacity, TextInput } from "react-native";
 import { styles } from "./styles";
 import { useSpendsContext } from "../../hook/useSpends";
 import { SpendProps } from "../../shared/types/SpendProps";
@@ -41,9 +41,10 @@ export function SearchSpends() {
     }
 
     return (
-      <View style={styles.resultContainer}>
+      <ScrollView style={styles.resultContainer}>
         <Text style={styles.resultTitle}>Resultados da pesquisa</Text>
         <FlatList
+          scrollEnabled={false}
           data={searchResults}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
@@ -55,8 +56,9 @@ export function SearchSpends() {
               </Text>
             </View>
           )}
+          contentContainerStyle={{ paddingBottom: 20 }}
         />
-      </View>
+      </ScrollView>
     );
   };
 
