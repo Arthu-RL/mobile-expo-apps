@@ -2,7 +2,7 @@ import { Dimensions } from "react-native";
 import { colors } from "../../shared/styles/color";
 
 const { width, height } = Dimensions.get("window");
-const baseSize = Math.min(width, height);
+export const baseSize = Math.min(width, height);
 
 export const theme = {
   screen: {

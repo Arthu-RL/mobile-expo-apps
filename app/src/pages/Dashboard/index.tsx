@@ -11,7 +11,7 @@ export function Dashboard() {
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
   const [place, setPlace] = useState("");
-  const { setDlist } = useSpendsContext();
+  // const { refreshDList } = useSpendsContext();
 
   function dataValidation(data: SpendProps): boolean {
     // Check if description is not empty
@@ -55,17 +55,18 @@ export function Dashboard() {
   }
 
   async function handleAddNewSpend(data: SpendProps) {
+    // asyncStorage.spendClear()
     if (dataValidation(data))
     {
       await asyncStorage.spendCreate(data);
-      const result = await asyncStorage.spendList();
-      setDlist(result);
-
+      
       setDescription("");
       setValue("");
       setDate("");
       setCategory("");
       setPlace("");
+
+      // refreshDList()
     }
   }
 

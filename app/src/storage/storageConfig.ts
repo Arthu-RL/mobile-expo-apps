@@ -1,3 +1,3 @@
-const SPEND_COLLECTION = '@myapp:employee'
+const SPEND_COLLECTION = "@app:spends";
 
-export { SPEND_COLLECTION }
+export { SPEND_COLLECTION };

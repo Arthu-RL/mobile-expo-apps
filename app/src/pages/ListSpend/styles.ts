@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../shared/styles/color";
-import { theme } from "../../shared/styles/theme";
+import { theme, baseSize } from "../../shared/styles/theme";
 import { stylesFonts } from "../../shared/fonts/fonts";
 
 export const styles = StyleSheet.create({
@@ -48,12 +48,14 @@ export const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   descriptionText: {
+    maxWidth: baseSize * 0.55,
     fontSize: theme.typography.subheading.fontSize,
     fontFamily: stylesFonts.medium,
     color: colors.green.dark,
     marginBottom: theme.spacing.xs,
   },
   valueText: {
+    maxWidth: baseSize * 0.3,
     fontSize: theme.typography.subheading.fontSize,
     fontFamily: stylesFonts.bold,
     color: colors.green.base,

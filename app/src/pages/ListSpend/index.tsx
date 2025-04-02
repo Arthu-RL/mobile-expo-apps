@@ -1,14 +1,12 @@
 import { Text, FlatList, View } from "react-native";
 import { useSpendsContext } from "../../hook/useSpends";
 import { useEffect } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback } from "react";
 import { styles } from "./styles";
 
 export function ListSpends() {
-  const { dlist } = useSpendsContext();
-
-  useEffect(() => {
-    console.log("Spends list updated:", dlist);
-  }, [dlist]);
+  const { dlist, refreshDList } = useSpendsContext();
 
   const renderEmptyList = () => (
     <View style={styles.emptyList}>
@@ -16,6 +14,18 @@ export function ListSpends() {
         Nenhuma despesa cadastrada ainda.
       </Text>
     </View>
+  );
+
+  useEffect(() => {
+    console.debug("Spends list updated:", dlist);
+  }, [dlist]);
+
+  useFocusEffect(
+    useCallback(() => {
+      console.log("Screen is focused, updating spends list");
+
+      refreshDList();
+    }, [])
   );
 
   const validItems = dlist ? dlist.filter(item => 
